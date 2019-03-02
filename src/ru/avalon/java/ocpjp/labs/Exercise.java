@@ -1,5 +1,9 @@
 package ru.avalon.java.ocpjp.labs;
 
+import ru.avalon.java.ocpjp.labs.tasks.arrays.OneDimensionalArrays;
+import ru.avalon.java.ocpjp.labs.tasks.arrays.TwoDimensionalArrays;
+import ru.avalon.java.ocpjp.labs.tasks.objects.Inheritance;
+
 /**
  * Абстратное представление об упражнении.
  */
@@ -32,7 +36,9 @@ public interface Exercise {
      * @return Экземпляр класса, реализующего задание
      */
     static Exercise create(String[] args) {
-        // TODO(Студент): Реализовать метод create интерфейса Exercise
-        throw new UnsupportedOperationException("Not implemented!");
+        //OneDimensionalArrays arr = new OneDimensionalArrays();
+        //TwoDimensionalArrays arr = new TwoDimensionalArrays();
+        Inheritance arr = new Inheritance();
+        return arr;
     }
 }

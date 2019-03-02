@@ -3,9 +3,8 @@ package ru.avalon.java.ocpjp.labs.tasks.objects;
 import ru.avalon.java.ocpjp.labs.Exercise;
 import ru.avalon.java.ocpjp.labs.common.ObjectWriter;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.io.IOException;
+import java.util.*;
 
 /**
  * Задание, направленное на изучение следующих тем:
@@ -41,8 +40,17 @@ public final class Inheritance implements Exercise {
     private ObjectWriter<Citizen> writer;
 
     public Inheritance() {
-        // TODO(Студент): Выполнить инициализацию полей класса Inheritance
-        throw new UnsupportedOperationException("Not implemented!");
+        Random rnd = new Random();
+        int num = rnd.nextInt(11) + 20;
+        ArrayList<Citizen> sourceArr = new ArrayList<>();
+        for (int i = 0; i < num; i++) {
+            sourceArr.add(new CitizenImpl());
+        }
+        this.source = sourceArr;
+
+        writer = new WriterCitizen();
+
+        comparator = new CompareCitizens();
     }
 
     /**
@@ -53,9 +61,21 @@ public final class Inheritance implements Exercise {
         List<Citizen> citizens = new ArrayList<>();
 
         // TODO(Студент): Добавить все элементы, доступные в объекте source, в коллекцию citizens
+        for (Citizen s: source) {
+            citizens.add(s);
+        }
 
         // TODO(Студент): Отсортировать список citizens перед выводом в поток
+        // Compare by name in ascending order
+        Collections.sort(citizens, comparator);
 
         // TODO(Студент): Пользуясь объектом writer вывести список citizens в консоль
+        for (Citizen c: citizens) {
+            try {
+                writer.write(c);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }
