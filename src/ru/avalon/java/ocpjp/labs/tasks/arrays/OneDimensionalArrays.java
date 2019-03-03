@@ -52,8 +52,4 @@ public final class OneDimensionalArrays implements Exercise {
         writer.write(array);
     }
     
-    public static void main(String[] args) throws IOException {
-        OneDimensionalArrays a = new OneDimensionalArrays();
-        a.run();
-    }
 }
