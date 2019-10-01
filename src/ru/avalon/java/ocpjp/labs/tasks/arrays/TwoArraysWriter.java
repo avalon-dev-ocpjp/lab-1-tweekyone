@@ -18,7 +18,7 @@ public class TwoArraysWriter implements ObjectWriter<int[][]>{
     @Override
     public void write(int[][] object) throws IOException {
         for (int i = 0; i < object.length; i++){
-        System.out.println(Arrays.toString(object[i]));            
+            System.out.println(Arrays.toString(object[i]));            
         }
     }
 
