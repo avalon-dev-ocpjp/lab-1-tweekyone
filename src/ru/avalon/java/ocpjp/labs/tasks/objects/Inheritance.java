@@ -66,13 +66,20 @@ public final class Inheritance implements Exercise {
         }
 
         Collections.sort(citizens, comparator);  // TODO(Студент): Отсортировать список citizens перед выводом в поток
-
-        citizens.forEach((citizen) -> {          // TODO(Студент): Пользуясь объектом writer вывести список citizens в консоль
+        
+        for (Citizen citizen : citizens){
             try {
                 writer.write(citizen);
-            } catch (IOException ex) {
+            } catch (IOException ex){
                 System.out.println(ex.getMessage());
             }
-        });
+        }
+//        citizens.forEach((citizen) -> {          // TODO(Студент): Пользуясь объектом writer вывести список citizens в консоль
+//            try {
+//                writer.write(citizen);
+//            } catch (IOException ex) {
+//                System.out.println(ex.getMessage());
+//            }
+//        });
     }
 }
